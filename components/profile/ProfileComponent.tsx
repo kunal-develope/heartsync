@@ -60,20 +60,6 @@ const ProfileComponent = ({navigation}) => {
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <Button
-          buttonStyle={{
-            alignSelf: 'flex-end',
-            backgroundColor: '#ebedf0',
-            marginRight: 20,
-          }}
-          radius={'sm'}
-          type="clear"
-          onPress={() => {
-            AsyncStorage.clear();
-            navigation.popToTop();
-          }}>
-          Logout
-        </Button>
         <ScrollView
           contentContainerStyle={styles.scrollView}
           refreshControl={
@@ -91,7 +77,7 @@ const ProfileComponent = ({navigation}) => {
             radius={'sm'}
             type="clear"
             onPress={onButtonClicked}>
-            Edit
+            Edit Profile
           </Button>
           <Text style={styles.userText}>Name:{userProfile?.fullName}</Text>
           <Text style={styles.userText}>Contact:{userProfile?.mobile}</Text>

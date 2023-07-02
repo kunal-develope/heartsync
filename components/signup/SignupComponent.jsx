@@ -35,7 +35,7 @@ const SignupComponent = ({navigation}) => {
     }
   };
   const alreadyUserText = () => {
-    navigation.navigate('login');
+    navigation.navigate('Login');
   };
   useEffect(() => {
     retrieveUserData();
@@ -46,7 +46,7 @@ const SignupComponent = ({navigation}) => {
       if (value !== null) {
         // We have data!!
         setTimeout(() => {
-          navigation.navigate('main');
+          navigation.navigate('HeartSync');
         }, 2900);
       }
     } catch (error) {

@@ -9,6 +9,7 @@ import MainComponent from './components/main/MainComponent';
 import LoginComponent from './components/login/LoginComponent';
 import EditProfile from './components/editProfile/EditProfile';
 import {Button} from '@rneui/themed';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,23 +27,40 @@ const App = () => {
             name="signup"
             component={SignupComponent}
           />
-          <Stack.Screen name="profile" component={ProfileComponent} />
           <Stack.Screen
-            name="main"
-            component={MainComponent}
+            name="Profile"
+            component={ProfileComponent}
             options={({navigation, route}) => ({
               // Add a placeholder button without the `onPress` to avoid flicker
               headerRight: () => (
                 <Button
-                  title="Profile"
+                  type="clear"
+                  title="Logout"
                   onPress={() => {
-                    navigation.navigate('profile');
+                    AsyncStorage.clear();
+                    navigation.popToTop();
                   }}
                 />
               ),
             })}
           />
-          <Stack.Screen name="login" component={LoginComponent} />
+          <Stack.Screen
+            name="HeartSync"
+            component={MainComponent}
+            options={({navigation, route}) => ({
+              // Add a placeholder button without the `onPress` to avoid flicker
+              headerRight: () => (
+                <Button
+                  type="clear"
+                  title="Profile"
+                  onPress={() => {
+                    navigation.navigate('Profile');
+                  }}
+                />
+              ),
+            })}
+          />
+          <Stack.Screen name="Login" component={LoginComponent} />
           <Stack.Screen name="editprofile" component={EditProfile} />
         </Stack.Navigator>
       </NavigationContainer>

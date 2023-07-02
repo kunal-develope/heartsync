@@ -32,7 +32,7 @@ const LoginComponent = ({navigation}) => {
         }
         setlogInLoder(false);
         if (res.message === 'login success') {
-          navigation.navigate('main');
+          navigation.navigate('HeartSync');
         }
       });
     } else {
@@ -50,6 +50,10 @@ const LoginComponent = ({navigation}) => {
         height: '100%',
         backgroundColor: '#ebedf0',
       }}>
+      <Image
+        style={styles.tinyLogo}
+        source={require('../../images/heartsync.png')}
+      />
       <Card containerStyle={styles.cardStyles}>
         <Card.Title> HeartSync</Card.Title>
         <Card.Divider />
